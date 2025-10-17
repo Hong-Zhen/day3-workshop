@@ -49,5 +49,4 @@ jobs:
           template: '@/contrib/sarif.tpl'
           output: 'trivy-results.sarif'
           severity: 'CRITICAL,HIGH'
-        env:
-          TRIVY_CACHE_DIR: /home
+          cache-dir: .trivy
