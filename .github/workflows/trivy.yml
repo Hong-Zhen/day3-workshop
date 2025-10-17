@@ -33,6 +33,8 @@ jobs:
         run: df -h
       - name: Check current directory
         run: pwd && ls -ltrh && df -h /var/lib/docker
+      - name: Clean up Docker
+        run: docker system prune -af
       - name: Build an image from Dockerfile
         run: |
           docker build -t hz-fastapi-app:v0.0.1 .
