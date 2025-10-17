@@ -50,3 +50,5 @@ jobs:
           output: 'trivy-results.sarif'
           severity: 'CRITICAL,HIGH'
           cache-dir: .trivy
+        env:
+          TMPDIR: '/home'
