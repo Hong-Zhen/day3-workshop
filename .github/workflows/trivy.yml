@@ -51,4 +51,4 @@ jobs:
           severity: 'CRITICAL,HIGH'
           cache-dir: .trivy
         env:
-          TMPDIR: '/home'
+          TMPDIR: '/mnt'
