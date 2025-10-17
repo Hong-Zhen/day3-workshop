@@ -31,10 +31,11 @@ jobs:
 
       - name: Check disk usage before scan
         run: df -h
-
+      - name: Check current directory
+        run: pwd && ls -ltrh
       - name: Build an image from Dockerfile
         run: |
-          docker build -t hz-fastapi-app:v0.0.1 /
+          docker build -t hz-fastapi-app:v0.0.1 
 
       - name: Check disk usage before scan
         run: df -h
