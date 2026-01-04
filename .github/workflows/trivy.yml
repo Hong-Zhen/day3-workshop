@@ -42,11 +42,10 @@ jobs:
       - name: Build an image from Dockerfile
         run: |
           docker build -t hz-fastapi-app:v0.0.1 .
-      - name: Build an image from Dockerfile
-        run: |
-          docker build -t hz-fastapi-app:v0.0.1 .
       - name: Check docker images
-        run: docker images
+        run: | 
+            docker images
+            docker inspect hz-fastapi-app:v0.0.1 | head -n 20
         
       - name: Remove opt
         run: sudo rm -rf /opt
