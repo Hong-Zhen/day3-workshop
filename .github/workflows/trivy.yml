@@ -42,9 +42,12 @@ jobs:
       - name: Build an image from Dockerfile
         run: |
           docker build -t hz-fastapi-app:v0.0.1 .
-
-      - name: Check disk usage before scan
-        run: df -h
+      - name: Build an image from Dockerfile
+        run: |
+          docker build -t hz-fastapi-app:v0.0.1 .
+      - name: Check docker images
+        run: docker images
+        
       - name: Remove opt
         run: sudo rm -rf /opt
       - name: Run Trivy vulnerability scanner
@@ -56,7 +59,7 @@ jobs:
           output: 'trivy-results.sarif'
           cache-dir: .trivy
         env:
-          TMPDIR: '/mnt'
+          TRIVY_TMPDIR: ${{ runner.temp }}
       - name: Upload Trivy scan results to GitHub Security tab
         uses: github/codeql-action/upload-sarif@v3
         with:
